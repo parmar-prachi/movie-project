@@ -189,7 +189,8 @@ FAVORITES_PAGE ::
 WATCH_PAGE ::
 
 
-<img width="1280" height="800" alt="WATCH_PAGE" src="https://github.com/user-attachments/assets/9d315be4-d376-4b36-89b7-f8d5ba073584" />
+<img width="1224" height="652" alt="WATCH_PAGE" src="https://github.com/user-attachments/assets/83c473d9-3820-4b85-8fcd-69048d75d3d1" />
+
 
 MOVIE_DETAILES_PAGE ::
 
