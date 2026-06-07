@@ -1,0 +1,81 @@
+<%- include('header') %>
+
+<div class="container py-5">
+
+    <h2 class="section-title mb-4">
+
+        My Favorite Movies
+
+    </h2>
+
+    <div class="row">
+
+        <% if(movies.length === 0){ %>
+
+            <div class="col-12">
+
+                <div class="alert alert-warning">
+
+                    No favorite movies added yet.
+
+                </div>
+
+            </div>
+
+        <% } %>
+
+        <% movies.forEach(movie => { %>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+
+                <div class="movie-card">
+
+                    <a
+                        href="/movie/<%= movie._id %>"
+                    >
+
+                    <img src="<%= movie.image %>">
+
+                    </a>
+
+                    <div class="movie-info">
+
+                        <h5>
+                            <%= movie.title %>
+                        </h5>
+
+                        <p>
+                            ⭐ <%= movie.rating %>
+                        </p>
+
+                        <div class="d-grid gap-2">
+
+                            <a
+                                href="/watch/<%= movie._id %>"
+                                class="btn btn-danger"
+                            >
+                                Watch
+                            </a>
+
+                            <a
+                                href="/favorite/<%= movie._id %>"
+                                class="btn btn-outline-light"
+                            >
+                                Remove
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>
+
+<%- include('footer') %>

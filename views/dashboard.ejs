@@ -1,0 +1,205 @@
+<%- include('header') %>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero-section">
+
+        <div class="hero-overlay">
+
+            <div class="container hero-content">
+
+                <h1>
+                    Unlimited Movies,
+                    TV Shows & More
+                </h1>
+
+                <p>
+                    Watch anywhere. Stream anytime.
+                </p>
+
+                <a href="#trending" class="btn btn-danger btn-lg">
+                    Explore Movies
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SEARCH -->
+
+    <section class="container mt-5">
+
+        <form action="/search" method="GET">
+
+            <div class="input-group">
+
+                <input type="text" name="keyword" class="form-control" placeholder="Search Movies...">
+
+                <button class="btn btn-danger">
+                    Search
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- CATEGORIES -->
+
+    <section class="container mt-5">
+
+        <h2 class="section-title">
+            Browse By Category
+        </h2>
+
+        <div class="category-wrapper">
+
+            <a href="/category/Action">Action</a>
+
+            <a href="/category/Drama">Drama</a>
+
+            <a href="/category/Love">Love</a>
+
+            <a href="/category/Comedy">Comedy</a>
+
+            <a href="/category/Horror">Horror</a>
+
+            <a href="/category/Adventure">Adventure</a>
+
+            <a href="/category/Sci-Fi">Sci-Fi</a>
+
+            <a href="/category/Thriller">Thriller</a>
+
+        </div>
+
+    </section>
+
+    <!-- TRENDING MOVIES -->
+
+    <section class="container mt-5" id="trending">
+
+        <h2 class="section-title">
+            🔥 Trending Movies
+        </h2>
+
+        <div class="row">
+
+            <% trendingMovies.forEach(movie=> { %>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+                    <div class="movie-card">
+
+                        <a href="/movie/<%= movie._id %>">
+
+                        <img src="<%= movie.image %>">
+
+                        </a>
+
+                        <div class="movie-info">
+
+                            <h5>
+                                <%= movie.title %>
+                            </h5>
+
+                            <p>
+                                <%= movie.category %>
+                            </p>
+
+                            <p>
+                                ⭐ <%= movie.rating %>
+                            </p>
+
+                            <div class="d-flex justify-content-between">
+
+                                <a href="/watch/<%= movie._id %>" class="btn btn-danger btn-sm">
+                                    Watch
+                                </a>
+
+                                <a href="/favorite/<%= movie._id %>" class="btn btn-outline-light btn-sm">
+                                    <% if(movie.isFavorite){ %>
+                                        ❤️
+                                        <% } else { %>
+                                            🤍
+                                            <% } %>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <% }) %>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECENTLY ADDED -->
+
+    <section class="container mt-5 mb-5">
+
+        <h2 class="section-title">
+            🆕 Recently Added
+        </h2>
+
+        <div class="row">
+
+            <% recentMovies.forEach(movie=> { %>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+                    <div class="movie-card">
+
+                        <a href="/movie/<%= movie._id %>">
+
+                            <img src="<%= movie.image %>">
+
+                        </a>
+
+                        <div class="movie-info">
+
+                            <h5>
+                                <%= movie.title %>
+                            </h5>
+
+                            <p>
+                                <%= movie.releaseYear %>
+                            </p>
+
+                            <div class="d-flex justify-content-between">
+
+                                <a href="/watch/<%= movie._id %>" class="btn btn-danger btn-sm">
+                                    Watch
+                                </a>
+
+                                <a href="/favorite/<%= movie._id %>" class="btn btn-outline-light btn-sm">
+                                    <% if(movie.isFavorite){ %>
+                                        ❤️
+                                        <% } else { %>
+                                            🤍
+                                            <% } %>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <% }) %>
+
+        </div>
+
+    </section>
+
+    <%- include('footer') %>

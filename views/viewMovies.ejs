@@ -1,0 +1,105 @@
+<%- include('header') %>
+
+    <div class="container py-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <h2>
+                All Movies
+            </h2>
+
+            <a href="/addMovie" class="btn btn-danger">
+                Add Movie
+            </a>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Poster</th>
+
+                        <th>Title</th>
+
+                        <th>Category</th>
+
+                        <th>Year</th>
+
+                        <th>Rating</th>
+
+                        <th>Views</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <% movies.forEach(movie=>{ %>
+
+                        <tr>
+
+                            <td>
+
+                                <img src="<%= movie.image %>" width="70" height="90" style="object-fit:cover;border-radius:8px;"
+                                    alt="<%= movie.title %>">
+
+                            </td>
+
+                            <td>
+                                <%= movie.title %>
+                            </td>
+
+                            <td>
+                                <%= movie.category %>
+                            </td>
+
+                            <td>
+                                <%= movie.releaseYear %>
+                            </td>
+
+                            <td>
+                                ⭐ <%= movie.rating %>
+                            </td>
+
+                            <td>
+                                <%= movie.views %>
+                            </td>
+
+                            <td>
+
+                                <a href="/movie/<%= movie._id %>" class="btn btn-info btn-sm">
+                                    View
+                                </a>
+
+                                <a href="/editMovie/<%= movie._id %>" class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
+
+                                <a href="/deleteMovie/<%= movie._id %>" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Delete this movie?')">
+                                    Delete
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        <% }) %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <%- include('footer') %>

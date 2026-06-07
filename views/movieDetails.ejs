@@ -1,0 +1,104 @@
+<%- include('header') %>
+
+    <div class="container py-5">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-4">
+
+                <img src="<%= movie.image %>" class="w-100">
+
+            </div>
+
+            <div class="col-lg-8">
+
+                <div class="movie-detail-content">
+
+                    <span class="movie-badge">
+                        <%= movie.category %>
+                    </span>
+
+                    <h1 class="movie-title">
+                        <%= movie.title %>
+                    </h1>
+
+                    <div class="movie-meta">
+
+                        <span>
+                            ⭐ <%= movie.rating %>/10
+                        </span>
+
+                        <span>
+                            🎬 <%= movie.releaseYear %>
+                        </span>
+
+                        <span>
+                            ⏱ <%= movie.duration %>
+                        </span>
+
+                        <span>
+                            👁 <%= movie.views %> Views
+                        </span>
+
+                    </div>
+
+                    <div class="mt-3">
+
+                        <strong>Language:</strong>
+                        <%= movie.language %>
+
+                    </div>
+
+                    <div class="mt-2">
+
+                        <strong>Director:</strong>
+                        <%= movie.director %>
+
+                    </div>
+
+                    <div class="mt-2">
+
+                        <strong>Cast:</strong>
+                        <%= movie.cast %>
+
+                    </div>
+
+                    <div class="description-box mt-4">
+
+                        <h5>Description</h5>
+
+                        <p>
+                            <%= movie.description %>
+                        </p>
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <a href="/watch/<%= movie._id %>" class="btn btn-danger btn-lg me-3">
+                            ▶ Watch Now
+                        </a>
+
+                        <a href="/favorite/<%= movie._id %>" class="btn btn-outline-light btn-lg">
+                            <% if(movie.isFavorite){ %>
+
+                                ❤️ Saved
+
+                                <% } else { %>
+
+                                    🤍 Save
+
+                                    <% } %>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <%- include('footer') %>
